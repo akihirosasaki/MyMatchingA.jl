@@ -21,7 +21,7 @@ function my_deferred_acceptance(boys_prefs, girls_prefs)
     
     
     while true
-        i = get_single(boys_partners)
+        @show i = get_single(boys_partners)
         if i == 0
             break
         end
@@ -51,7 +51,7 @@ function my_deferred_acceptance(boys_prefs, girls_prefs)
 
             end
         end
-        boys_next_to_propose[i] += 1
+        @show boys_next_to_propose[i] += 1
     end
     
     return boys_partners, girls_partners    
