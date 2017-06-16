@@ -21,7 +21,7 @@ function my_deferred_acceptance(boys_prefs, girls_prefs)
     
     
     while true
-        @show i = get_single(boys_partners)
+        i = get_single(boys_partners)
         if i == 0
             break
         end
@@ -53,6 +53,8 @@ function my_deferred_acceptance(boys_prefs, girls_prefs)
         end
         boys_next_to_propose[i] += 1
     end
+    
+    return boys_partners, girls_partners    
 end
 
 #独身の男性を返す．(存在しなければ0)
