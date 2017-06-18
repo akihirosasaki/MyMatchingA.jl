@@ -12,10 +12,10 @@ function my_deferred_acceptance(boys_prefs, girls_prefs)
     
     girls_partners = zeros(Int, n)
     
-    @show girls_rankings = (m+1)*ones(m,n)    
+    girls_rankings = (m+1)*ones(m,n)    
     
-    @show for j in 1:n
-    @show    for i in 1:length(girls_prefs[j])
+    for j in 1:n
+        for i in 1:length(girls_prefs[j])
     @show        girls_rankings[girls_prefs[j, i], j] = i
         end
     end
