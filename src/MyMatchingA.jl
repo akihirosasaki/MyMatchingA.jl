@@ -2,23 +2,23 @@ module MyMatchingA
 export my_deferred_acceptance
 
 function my_deferred_acceptance(boys_prefs, girls_prefs)
-   @show m = size(boys_prefs, 1)
-   @show n = size(girls_prefs, 1)
+    m = size(boys_prefs, 1)
+    n = size(girls_prefs, 1)
     #その男性が婚約している女性(リストが尽きた独身=0,リストが尽きてない独身=-1)
     #boys_partners[1] = 2; 男性1は女性2と婚約している．
-   @show boys_partners = fill(-1, m)
+    boys_partners = fill(-1, m)
     
-   @show boys_next_to_propose = ones(Int, m)
+    boys_next_to_propose = ones(Int, m)
     
-   @show girls_partners = zeros(Int, n)
+    girls_partners = zeros(Int, n)
     
-   @show girls_rankings = (m+1)*ones(m,n)    
+    girls_rankings = (m+1)*ones(m,n)    
     
-    for j in 1:n
-        for i in 1:length(girls_prefs[j])
-     @show       girls_rankings[girls_prefs[j][i]][j] = i
-        end
-    end
+   @show for j in 1:n
+   @show    for i in 1:length(girls_prefs[j])
+   @show         girls_rankings[girls_prefs[j][i]][j] = i
+   @show     end
+   @show end
     
     
     while true
