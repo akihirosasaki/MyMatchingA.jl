@@ -38,7 +38,7 @@ function my_deferred_acceptance(boys_prefs, girls_prefs)
         p = girls_partners[j]
 
         #女性jが独身なら婚約する．
-        if p == 0 && girls_rankings[i][j] < m+1
+        if p == 0 && girls_rankings[i, j] < m+1
             girls_partners[j] = i
             boys_partners[i] = j
 
