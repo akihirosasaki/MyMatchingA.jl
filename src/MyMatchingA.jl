@@ -22,7 +22,7 @@ function my_deferred_acceptance(boys_prefs, girls_prefs)
     
     
     while true
-        i = get_single(boys_partners)
+        @show i = get_single(boys_partners)
         if i == 0
             break
         end
