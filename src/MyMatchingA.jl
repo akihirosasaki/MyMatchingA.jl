@@ -14,12 +14,13 @@ function my_deferred_acceptance(boys_prefs, girls_prefs)
     
     girls_rankings = (m+1)*ones(m,n)    
     
-   @show for j in 1:n
-   @show    for i in 1:length(girls_prefs[j])
-   @show         girls_rankings[girls_prefs[j][i]][j] = i
-   @show     end
-   @show end
+    for j in 1:n
+       for i in 1:length(girls_prefs[j])
+            girls_rankings[girls_prefs[j][i]][j] = i
+        end
+    end
     
+    @show girls_rankings
     
     while true
         i = get_single(boys_partners)
