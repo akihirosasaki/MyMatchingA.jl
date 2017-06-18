@@ -12,7 +12,8 @@ function my_deferred_acceptance(boys_prefs, girls_prefs)
     
     girls_partners = zeros(Int, n)
     
-    girls_rankings = Array{Int}(m,n)
+    girls_rankings = m*ones(m,n)    
+    
     for j in 1:n
         for i in 1:length(girls_prefs[j])
             girls_rankings[girls_prefs[j][i], j] = i
@@ -21,7 +22,7 @@ function my_deferred_acceptance(boys_prefs, girls_prefs)
     
     
     while true
-        @show i = get_single(boys_partners)
+        i = get_single(boys_partners)
         if i == 0
             break
         end
@@ -51,7 +52,7 @@ function my_deferred_acceptance(boys_prefs, girls_prefs)
 
             end
         end
-        @show boys_next_to_propose[i] += 1
+        boys_next_to_propose[i] += 1
     end
     
     return boys_partners, girls_partners    
