@@ -17,7 +17,7 @@ function my_deferred_acceptance(boys_prefs, girls_prefs)
     for j in 1:n
        for i in 1:length(girls_prefs[j])
            @show b = length(girls_prefs[j])
-           @show a = girls_prefs[j,i]
+           @show a = girls_prefs[j][i]
            @show girls_rankings[a,j] = i
        end
     end
@@ -35,7 +35,7 @@ function my_deferred_acceptance(boys_prefs, girls_prefs)
             
 
         #男性iが好きな女性jを探す．
-        j = boys_prefs[i, boys_next_to_propose[i]]
+        j = boys_prefs[i][boys_next_to_propose[i]]
 
         #女性jが婚約している相手pを探す．
         p = girls_partners[j]
