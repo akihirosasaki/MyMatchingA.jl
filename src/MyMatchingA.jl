@@ -38,7 +38,7 @@ function my_deferred_acceptance(boys_prefs, girls_prefs)
         @show j = boys_prefs[i][boys_next_to_propose[i]]
 
         #女性jが婚約している相手pを探す．
-        p = girls_partners[j]
+        @show p = girls_partners[j]
         
         if girls_ranking[i,j] >= m+1
             boys_next_to_propose[i] += 1
@@ -48,7 +48,7 @@ function my_deferred_acceptance(boys_prefs, girls_prefs)
         #女性jが独身なら婚約する．
         if p == 0
             girls_partners[j] = i
-            boys_partners[i] = j
+        @show    boys_partners[i] = j
 
         #女性jが婚約している場合
         else
@@ -72,10 +72,9 @@ function get_single(partners)
     for i in 1:m
         if partners[i] == -1
           return i
-        end
-        return 0
+        end        
     end
-       
+    return 0   
 end
 
 
