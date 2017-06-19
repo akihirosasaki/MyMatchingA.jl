@@ -40,7 +40,7 @@ function my_deferred_acceptance(boys_prefs, girls_prefs)
         #女性jが婚約している相手pを探す．
         @show p = girls_partners[j]
         
-        if girls_ranking[i,j] >= m+1
+        if girls_rankings[i,j] >= m+1
             boys_next_to_propose[i] += 1
             continue
         end
