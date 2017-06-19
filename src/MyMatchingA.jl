@@ -18,7 +18,7 @@ function my_deferred_acceptance(boys_prefs, girls_prefs)
        for i in 1:length(girls_prefs[j])
            @show b = length(girls_prefs[j])
            @show a = girls_prefs[j,i]
-           girls_rankings[a,j] = i
+           @show girls_rankings[a,j] = i
        end
     end
     
