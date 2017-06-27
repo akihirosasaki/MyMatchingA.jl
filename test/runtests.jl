@@ -2,7 +2,7 @@ using MyMatchingA
 using Base.Test
 
 const _deferred_acceptance = my_deferred_acceptance
-const test_matrix = false
+const test_matrix = true
 
 function mat2vecs{T<:Integer}(prefs::Matrix{T})
     return [prefs[1:findfirst(prefs[:, j], 0)-1, j] for j in 1:size(prefs, 2)]
