@@ -43,8 +43,13 @@ function my_deferred_acceptance(prop_prefs::Vector{Vector{Int}},
 
         #学生iが入りたい大学jを探す．
         j = prop_prefs[i][prop_next_to_propose[i]]
-
+        if j == 0
+            prop_matches[i] = 0
+            continue
+        end
+        
         #大学jのリストを探す
+        #要修正？
         p = resp_matches[indptr[j]:indptr[j+1]-1]
         
         if resp_rankings[i,j] >= m+1
@@ -61,12 +66,17 @@ function my_deferred_acceptance(prop_prefs::Vector{Vector{Int}},
         #大学jが定員オーバーしている場合
         else
         #大学jがiの方を選好していれば，受け入れる．
+            list_comp = Array(Int, length(p))
             for k in 1:length(p)
-                b = maximum(resp_rankings[p[k],j])
-                c = findfirst(resp_rankings[:,j], b)
+                b = resp_rankings[p[k],j])
+                list_comp[k] = b
             end
+            b_max = maxmum(list_comp)
+            c = findfirst(resp_rankings[:,j], b_max)
+            
             if resp_rankings[i,j] < resp_rankings[c,j]
-                resp_matches[indptr[d]-1+a] = i
+                d = findfirst(resp_matches, c)
+                resp_matches[d] = i
                 prop_matches[i] = j
                 prop_matches[c] = -1
             end
