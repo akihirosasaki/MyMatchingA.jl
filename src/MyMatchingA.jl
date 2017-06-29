@@ -4,8 +4,8 @@ export my_deferred_acceptance
 # 多対一のケース
 function my_deferred_acceptance(prop_prefs::Vector{Vector{Int}},
                                 resp_prefs::Vector{Vector{Int}}, caps)
-@show    m = size(prop_prefs, 2)
-@show    n = size(resp_prefs, 2)
+    m = size(prop_prefs, 2)
+    n = size(resp_prefs, 2)
     
     prop_matches = fill(-1, m)
     
@@ -68,7 +68,7 @@ function my_deferred_acceptance(prop_prefs::Vector{Vector{Int}},
         #大学jがiの方を選好していれば，受け入れる．
             list_comp = Array(Int, length(p))
             for k in 1:length(p)
-                b = resp_rankings[p[k],j])
+                b = resp_rankings[p[k],j]
                 list_comp[k] = b
             end
             b_max = maxmum(list_comp)
