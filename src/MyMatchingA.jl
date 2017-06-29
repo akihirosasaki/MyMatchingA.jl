@@ -4,8 +4,8 @@ export my_deferred_acceptance
 # 多対一のケース
 function my_deferred_acceptance(prop_prefs::Vector{Vector{Int}},
                                 resp_prefs::Vector{Vector{Int}}, caps)
-    m = size(prop_prefs, 2)
-    n = size(resp_prefs, 2)
+    m = size(prop_prefs, 1)
+    n = size(resp_prefs, 1)
     
     prop_matches = fill(-1, m)
     
