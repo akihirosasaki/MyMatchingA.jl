@@ -8,9 +8,9 @@ function my_deferred_acceptance(prop_prefs::Matrix{Int}, resp_prefs::Matrix{Int}
     
     prop_matches = fill(-1, m)
     
-    prop_next_to_propose = ones(Int, m)
-    
-    resp_matches = zeros(Int, sum(caps))
+    prop_next_to_propose = ones(Int64, m)
+    L = sum(caps)
+    resp_matches = zeros(Int64, L)
     
     indptr = Array(Int,n+1)
     indptr[1] = 1
