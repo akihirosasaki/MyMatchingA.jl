@@ -43,10 +43,10 @@ function my_deferred_acceptance(prop_prefs::Vector{Vector{Int}},
 
         #学生iが入りたい大学jを探す．
         j = prop_prefs[i][prop_next_to_propose[i]]
-        if j == 0
-            prop_matches[i] = 0
-            continue
-        end
+        #if j == 0
+        #    prop_matches[i] = 0
+        #    continue
+        #end
         
         #大学jのリストを探す
         #要修正？
