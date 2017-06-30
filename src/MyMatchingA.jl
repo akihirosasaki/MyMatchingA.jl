@@ -3,8 +3,8 @@ export my_deferred_acceptance
 
 # 多対一のケース
 function my_deferred_acceptance(prop_prefs, resp_prefs, caps)
-@show    m = size(prop_prefs, 1)
-@show    n = size(resp_prefs, 1)
+    m = size(prop_prefs, 2)
+    n = size(resp_prefs, 2)
     
     prop_matches = fill(-1, m)
     
@@ -104,7 +104,7 @@ end
 
 # 一対一のケース
 function my_deferred_acceptance(prop_prefs,resp_prefs)
-    caps = ones(Int, size(resp_prefs, 1))
+    caps = ones(Int, size(resp_prefs, 2))
     prop_matches, resp_matches, indptr =
         my_deferred_acceptance(prop_prefs, resp_prefs, caps)
     return prop_matches, resp_matches
