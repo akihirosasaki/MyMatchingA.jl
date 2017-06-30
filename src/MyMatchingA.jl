@@ -70,7 +70,7 @@ function my_deferred_acceptance(prop_prefs, resp_prefs, caps)
                 b = resp_rankings[p[k],j]
                 list_comp[k] = b
             end
-            b_max = maxmum(list_comp)
+            b_max = maximum(list_comp)
             c = findfirst(resp_rankings[:,j], b_max)
             
             if resp_rankings[i,j] < resp_rankings[c,j]
