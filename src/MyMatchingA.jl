@@ -103,7 +103,7 @@ end
 
 
 # 一対一のケース
-function my_deferred_acceptance1(prop_prefs::Vector{Vector{Int}},
+function my_deferred_acceptance(prop_prefs::Vector{Vector{Int}},
                                 resp_prefs::Vector{Vector{Int}})
     caps = ones(Int, length(resp_prefs))
     prop_matches, resp_matches, indptr =
