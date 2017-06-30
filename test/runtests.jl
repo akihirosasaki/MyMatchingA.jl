@@ -1,4 +1,4 @@
-using MyMatchingA
+using MyMatching
 using Base.Test
 
 const _deferred_acceptance = my_deferred_acceptance
