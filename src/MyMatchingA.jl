@@ -3,6 +3,8 @@ export deferred_acceptanceA
 
 # 多対一のケース
 function deferred_acceptanceA(prop_prefs::Array{Int64,2}, resp_prefs::Array{Int64,2}, caps::Array{Int64,1})
+    prop_prefs = transpose(prop_prefs)
+    resp_prefs = transpose(resp_prefs)
     m = size(prop_prefs, 1)
     n = size(resp_prefs, 1)
     
