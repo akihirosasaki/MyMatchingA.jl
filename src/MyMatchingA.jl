@@ -49,7 +49,7 @@ function deferred_acceptanceA(prop_prefs::Array{Int64,2}, resp_prefs::Array{Int6
         
         #大学jのリストを探す
         #要修正？
-        p = resp_matches[indptr[j]:indptr[j+1]-1]
+   @show     p = resp_matches[indptr[j]:indptr[j+1]-1]
         
         if resp_rankings[i,j] >= m+1
             prop_next_to_propose[i] += 1
@@ -57,7 +57,7 @@ function deferred_acceptanceA(prop_prefs::Array{Int64,2}, resp_prefs::Array{Int6
         end
 
         #大学jが受け入れ可能なら受け入れる．
-        a = findfirst(p,0)
+    @show    a = findfirst(p,0)
         if a != 0
             resp_matches[indptr[j]-1+a] = i
             prop_matches[i] = j
