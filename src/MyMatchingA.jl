@@ -28,6 +28,7 @@ function deferred_acceptanceA(prop_prefs::Array{Int64,2}, resp_prefs::Array{Int6
        end
     end
     
+   @show q = resp_rankings
     
     while true
    @show     i = get_single(prop_matches)
@@ -57,7 +58,7 @@ function deferred_acceptanceA(prop_prefs::Array{Int64,2}, resp_prefs::Array{Int6
         end
 
         #大学jが受け入れ可能なら受け入れる．
-    @show    a = findfirst(p,0)
+   @show    a = findfirst(p,0)
         if a != 0
             resp_matches[indptr[j]-1+a] = i
             prop_matches[i] = j
