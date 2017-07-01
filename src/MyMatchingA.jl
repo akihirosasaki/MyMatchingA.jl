@@ -20,9 +20,9 @@ function deferred_acceptanceA(prop_prefs::Array{Int64,2}, resp_prefs::Array{Int6
     
     resp_rankings = (m+1)*ones(Int, m, n)    
     
-    for j in 1:n
-       for i in 1:length(resp_prefs[j])
-    @show       b = length(resp_prefs[j])
+    for j in 1:n       
+       for i in 1:length(resp_prefs[j,:])
+    @show       b = length(resp_prefs[j,:])            
     @show       a = resp_prefs[j,i]
            resp_rankings[a,j] = i
        end
