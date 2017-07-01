@@ -30,7 +30,7 @@ function deferred_acceptanceA(prop_prefs::Array{Int64,2}, resp_prefs::Array{Int6
     
     
     while true
-        i = get_single(prop_matches)
+   @show     i = get_single(prop_matches)
         if i == 0
             break
         end
@@ -41,7 +41,7 @@ function deferred_acceptanceA(prop_prefs::Array{Int64,2}, resp_prefs::Array{Int6
             
 
         #学生iが入りたい大学jを探す．
-        j = prop_prefs[i][prop_next_to_propose[i]]
+   @show     j = prop_prefs[i][prop_next_to_propose[i]]
         if j == 0
             prop_matches[i] = 0
             continue
