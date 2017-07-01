@@ -103,7 +103,7 @@ end
 
 
 # 一対一のケース
-function my_deferred_acceptance(prop_prefs::Array{Int64,2},resp_prefs::Array{Int64,2})
+function my_deferred_acceptance1(prop_prefs::Array{Int64,2},resp_prefs::Array{Int64,2})
     caps = ones(Int, size(resp_prefs, 2))
     prop_matches, resp_matches, indptr =
         my_deferred_acceptance(prop_prefs, resp_prefs, caps)
