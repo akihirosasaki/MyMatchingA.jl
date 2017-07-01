@@ -1,8 +1,8 @@
 module MyMatchingA
-export my_deferred_acceptance
+export deferred_acceptanceA
 
 # 多対一のケース
-function my_deferred_acceptance(prop_prefs::Array{Int64,2}, resp_prefs::Array{Int64,2}, caps::Array{Int64,1})
+function deferred_acceptanceA(prop_prefs::Array{Int64,2}, resp_prefs::Array{Int64,2}, caps::Array{Int64,1})
     m = size(prop_prefs, 2)
     n = size(resp_prefs, 2)
     
@@ -103,7 +103,7 @@ end
 
 
 # 一対一のケース
-function my_deferred_acceptance1(prop_prefs::Array{Int64,2},resp_prefs::Array{Int64,2})
+function deferred_acceptanceB(prop_prefs::Array{Int64,2},resp_prefs::Array{Int64,2})
     caps = ones(Int, size(resp_prefs, 2))
     prop_matches, resp_matches, indptr =
         my_deferred_acceptance(prop_prefs, resp_prefs, caps)
