@@ -3,8 +3,8 @@ export deferred_acceptanceA
 
 # 多対一のケース
 function deferred_acceptanceA(prop_prefs::Array{Int64,2}, resp_prefs::Array{Int64,2}, caps::Array{Int64,1})
-    m = size(prop_prefs, 2)
-    n = size(resp_prefs, 2)
+    m = size(prop_prefs, 1)
+    n = size(resp_prefs, 1)
     
     prop_matches = fill(-1, m)
     
@@ -42,10 +42,10 @@ function deferred_acceptanceA(prop_prefs::Array{Int64,2}, resp_prefs::Array{Int6
 
         #学生iが入りたい大学jを探す．
         j = prop_prefs[i][prop_next_to_propose[i]]
-        #if j == 0
-        #    prop_matches[i] = 0
-        #    continue
-        #end
+        if j == 0
+            prop_matches[i] = 0
+            continue
+        end
         
         #大学jのリストを探す
         #要修正？
@@ -104,7 +104,7 @@ end
 
 # 一対一のケース
 function deferred_acceptanceB(prop_prefs::Array{Int64,2},resp_prefs::Array{Int64,2})
-    caps = ones(Int, size(resp_prefs, 2))
+    caps = ones(Int, size(resp_prefs, 1))
     prop_matches, resp_matches, indptr =
         my_deferred_acceptance(prop_prefs, resp_prefs, caps)
     return prop_matches, resp_matches
