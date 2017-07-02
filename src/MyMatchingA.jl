@@ -2,7 +2,7 @@ module MyMatchingA
 export deferred_acceptance
 
 # 多対一のケース
-function deferred_acceptance(prop_prefs::Array{Int64,2}, resp_prefs::Array{Int64,2}, caps::Array{Int64,1})
+function deferred_acceptance(prop_prefs::Vector{Vector{Int}}, resp_prefs::Vector{Vector{Int}}, caps::Vector{Int})
     m = size(prop_prefs, 1)
     n = size(resp_prefs, 1)
     
@@ -104,7 +104,7 @@ end
 
 
 # 一対一のケース
-function deferred_acceptance(prop_prefs::Array{Int64,2},resp_prefs::Array{Int64,2})
+function deferred_acceptance(prop_prefs::Vector{Vector{Int}},resp_prefs::Vector{Vector{Int}})
     caps = ones(Int, size(resp_prefs, 1))
     prop_matches, resp_matches, indptr =
         deferred_acceptance(prop_prefs, resp_prefs, caps)
