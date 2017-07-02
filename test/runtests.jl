@@ -1,7 +1,7 @@
-using MyMatching
+using MyMatchingA
 using Base.Test
 
-const _deferred_acceptance = my_deferred_acceptance
+const _deferred_acceptance = deferred_acceptanceA
 const test_matrix = false
 
 function mat2vecs{T<:Integer}(prefs::Matrix{T})
