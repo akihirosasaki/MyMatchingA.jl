@@ -12,7 +12,7 @@ function deferred_acceptance(prop_prefs::Vector{Vector{Int}}, resp_prefs::Vector
     L = sum(caps)
     resp_matches = zeros(Int64, L)
     
-    indptr = Array(Int}(n+1)
+    indptr = Array{Int}(n+1)
     indptr[1] = 1
     for i in 1:n
         indptr[i+1] = indptr[i] + caps[i]
