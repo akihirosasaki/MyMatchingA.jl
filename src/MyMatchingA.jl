@@ -107,6 +107,6 @@ end
 function deferred_acceptance(prop_prefs::Array{Int64,2},resp_prefs::Array{Int64,2})
     caps = ones(Int, size(resp_prefs, 1))
     prop_matches, resp_matches, indptr =
-        deferred_acceptanceA(prop_prefs, resp_prefs, caps)
+        deferred_acceptance(prop_prefs, resp_prefs, caps)
     return prop_matches, resp_matches
 end
