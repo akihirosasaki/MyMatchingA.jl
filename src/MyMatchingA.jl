@@ -1,8 +1,57 @@
 module MyMatchingA
 export deferred_acceptance
 
+function deferred_acceptance(m_prefs::Vector{Vector{Int}},f_prefs::Vector{Vector{Int}},caps::Vector{Int})
+    m = length(m_prefs)
+    n = length(f_prefs)
+    prop_prefs = zeros(Int,n+1,m)
+    resp_prefs = zeros(Int,m+1,n)
+    
+    for male in 1:m
+        num = length(m_prefs[male])
+        for p in 1:num
+            prop_prefs[p,male] = m_prefs[male][p]
+        end
+    end
+    for fem in 1:n
+        numf = length(f_prefs[fem])
+        for q in 1:numf
+            resp_prefs[q,fem] = f_prefs[fem][q]
+        end
+    end
+
+    prop_matches, resp_matches, indptr = deferred_acceptance(prop_prefs, resp_prefs, caps)
+
+    return prop_matches,resp_matches,indptr
+end
+
+function deferred_acceptance(m_prefs::Vector{Vector{Int}},f_prefs::Vector{Vector{Int}})
+    m = length(m_prefs)
+    n = length(f_prefs)
+    prop_prefs = zeros(Int,n+1,m)
+    resp_prefs = zeros(Int,m+1,n)
+    
+    for male in 1:m
+        num = length(m_prefs[male])
+        for p in 1:num
+            prop_prefs[p,male] = m_prefs[male][p]
+        end
+    end
+    for fem in 1:n
+        numf = length(f_prefs[fem])
+        for q in 1:numf
+            resp_prefs[q,fem] = f_prefs[fem][q]
+        end
+    end
+    
+    caps = ones(Int, size(resp_prefs, 2))
+    prop_matches, resp_matches, indptr =
+        deferred_acceptance(prop_prefs, resp_prefs, caps)
+    return prop_matches, resp_matches
+end
+
 # 多対一のケース
-function deferred_acceptance(prop_prefs::Vector{Vector{Int}}, resp_prefs::Vector{Vector{Int}}, caps::Vector{Int})
+function deferred_acceptance(prop_prefs::Matrix{Int}, resp_prefs::Matrix{Int}, caps)
     m = size(prop_prefs, 1)
     n = size(resp_prefs, 1)
     
@@ -104,7 +153,7 @@ end
 
 
 # 一対一のケース
-function deferred_acceptance(prop_prefs::Vector{Vector{Int}},resp_prefs::Vector{Vector{Int}})
+function deferred_acceptance(prop_prefs::Matrix{Int},resp_prefs::Matrix{Int})
     caps = ones(Int, size(resp_prefs, 1))
     prop_matches, resp_matches, indptr =
         deferred_acceptance(prop_prefs, resp_prefs, caps)
