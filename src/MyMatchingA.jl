@@ -1,7 +1,7 @@
 module MyMatchingA
 export deferred_acceptance
 
-function deferred_acceptance(m_prefs::Vector{Vector{Int}},f_prefs::Vector{Vector{Int}},caps::Vector{Int})
+function deferred_acceptance(m_prefs::Array{Array{Int64,1},1},f_prefs::Array{Array{Int64,1},1},caps::Vector{Int})
     m = length(m_prefs)
     n = length(f_prefs)
     prop_prefs = zeros(Int,m,n+1)
@@ -26,7 +26,7 @@ function deferred_acceptance(m_prefs::Vector{Vector{Int}},f_prefs::Vector{Vector
 
 end
 
-function deferred_acceptance(m_prefs::Vector{Vector{Int}},f_prefs::Vector{Vector{Int}})
+function deferred_acceptance(m_prefs::Array{Array{Int64,1},1},f_prefs::Array{Array{Int64,1},1})
     m = length(m_prefs)
     n = length(f_prefs)
     prop_prefs = zeros(Int,m,n+1)
