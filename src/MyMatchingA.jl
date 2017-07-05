@@ -74,7 +74,7 @@ function deferred_acceptance(prop_prefs::Matrix{Int}, resp_prefs::Matrix{Int}, c
        for i in 1:length(resp_prefs[j,:])
            b = length(resp_prefs[j,:])            
            a = resp_prefs[j,i]
-           resp_rankings[a,j] = i
+   @show        resp_rankings[a,j] = i
        end
     end
     
