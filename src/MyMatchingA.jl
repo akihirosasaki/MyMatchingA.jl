@@ -149,7 +149,7 @@ function get_single(partners)
 end
 
 
-end
+
 
 
 
@@ -159,4 +159,6 @@ function deferred_acceptance(prop_prefs::Matrix{Int},resp_prefs::Matrix{Int})
     prop_matches, resp_matches, indptr =
         deferred_acceptance(prop_prefs, resp_prefs, caps)
     return prop_matches, resp_matches
+end
+
 end
