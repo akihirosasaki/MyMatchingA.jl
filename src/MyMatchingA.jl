@@ -45,7 +45,7 @@ function deferred_acceptance(m_prefs::Vector{Vector{Int}},f_prefs::Vector{Vector
         end
     end
     
-    caps = ones(Int, size(resp_prefs, 2))
+    caps = ones(Int, size(resp_prefs, 1))
     prop_matches, resp_matches, indptr =
         deferred_acceptance(prop_prefs, resp_prefs, caps)
     return prop_matches, resp_matches
