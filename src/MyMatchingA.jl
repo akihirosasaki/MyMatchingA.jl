@@ -88,8 +88,8 @@ function deferred_acceptance(prop_prefs::Matrix{Int}, resp_prefs::Matrix{Int}, c
         if i == 0
             break
         end
-   @show     if prop_next_to_propose[i] > length(prop_prefs[i,:])
-            c = length(prop_prefs[i,:])
+        if prop_next_to_propose[i] > length(prop_prefs[i,:])
+   @show         c = length(prop_prefs[i,:])
             prop_matches[i] = 0
             continue
         end        
