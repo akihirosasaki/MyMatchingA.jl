@@ -81,22 +81,22 @@ function deferred_acceptance(prop_prefs::Matrix{Int}, resp_prefs::Matrix{Int}, c
        end
     end
     
-   @show q = resp_rankings
+    q = resp_rankings
     
     while true
-   @show     i = get_single(prop_matches)
+        i = get_single(prop_matches)
         if i == 0
             break
         end
         if prop_next_to_propose[i] > length(prop_prefs[i,:])
-   @show         c = length(prop_prefs[i,:])
+            c = length(prop_prefs[i,:])
             prop_matches[i] = 0
             continue
         end        
             
 
         #学生iが入りたい大学jを探す．
-   @show     j = prop_prefs[i,prop_next_to_propose[i]]
+        j = prop_prefs[i,prop_next_to_propose[i]]
         if j == 0
             prop_matches[i] = 0
             continue
@@ -104,7 +104,7 @@ function deferred_acceptance(prop_prefs::Matrix{Int}, resp_prefs::Matrix{Int}, c
         
         #大学jのリストを探す
         #要修正？
-   @show     p = resp_matches[indptr[j]:indptr[j+1]-1]
+        p = resp_matches[indptr[j]:indptr[j+1]-1]
         
         if resp_rankings[i,j] >= m+1
             prop_next_to_propose[i] += 1
@@ -112,7 +112,7 @@ function deferred_acceptance(prop_prefs::Matrix{Int}, resp_prefs::Matrix{Int}, c
         end
 
         #大学jが受け入れ可能なら受け入れる．
-   @show    a = findfirst(p,0)
+       a = findfirst(p,0)
         if a != 0
             resp_matches[indptr[j]-1+a] = i
             prop_matches[i] = j
@@ -135,7 +135,7 @@ function deferred_acceptance(prop_prefs::Matrix{Int}, resp_prefs::Matrix{Int}, c
                 prop_matches[c] = -1
             end
         end
-   @show     prop_next_to_propose[i] += 1
+        prop_next_to_propose[i] += 1
     end
     
     return prop_matches, resp_matches, indptr    
