@@ -52,7 +52,7 @@ function deferred_acceptance(m_prefs::Vector{Vector{Int}},f_prefs::Vector{Vector
 end
 
 # 多対一のケース
-function deferred_acceptance(prop_prefs::Matrix{Int}, resp_prefs::Matrix{Int}, caps)
+function deferred_acceptance(prop_prefs::Matrix{Int}, resp_prefs::Matrix{Int}, caps::Vector{Int})
     m = size(prop_prefs, 1)
     n = size(resp_prefs, 1)
     
