@@ -122,13 +122,14 @@ export my_deferred_acceptance
            end
         end
 
-@show        q = resp_rankings
+@show   q = resp_rankings
+    
         while true
-@show            h = get_single(prop_matches)
+@show       h = get_single(prop_matches)
             if h == 0
                 break
             end
-@show            i = searchsortedlast(indptr1, h)
+@show       i = searchsortedlast(indptr1, h)
             if prop_next_to_propose[i] > length(prop_prefs[i,:])
                 c = length(prop_prefs[i,:])
                 prop_matches[i] = 0
@@ -153,7 +154,7 @@ export my_deferred_acceptance
             end
 
             #大学jが受け入れ可能なら受け入れる．
-           a = findfirst(p,0)
+            a = findfirst(p,0)
             if a != 0
                 resp_matches[indptr[j]-1+a] = i
                 prop_matches[i] = j
