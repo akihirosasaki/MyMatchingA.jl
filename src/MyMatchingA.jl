@@ -131,7 +131,7 @@ function my_deferred_acceptance(prop_prefs::Matrix{Int}, resp_prefs::Matrix{Int}
             i = searchsortedlast(indptr1, h)
             if prop_next_to_propose[i] > length(prop_prefs[i,:])
                 c = length(prop_prefs[i,:])
-                prop_matches[i] = 0
+                prop_matches[h] = 0
                 continue
             end        
 
@@ -156,7 +156,7 @@ function my_deferred_acceptance(prop_prefs::Matrix{Int}, resp_prefs::Matrix{Int}
             a = findfirst(p,0)
             if a != 0
                 resp_matches[indptr[j]-1+a] = i
-                prop_matches[i] = j
+                prop_matches[h] = j
 
             #大学jが定員オーバーしている場合
             else
@@ -172,11 +172,11 @@ function my_deferred_acceptance(prop_prefs::Matrix{Int}, resp_prefs::Matrix{Int}
                 if resp_rankings[i,j] < resp_rankings[c,j]
                     d = findfirst(resp_matches, c)
                     resp_matches[d] = i
-                    prop_matches[i] = j
+                    prop_matches[h] = j
                     prop_matches[c] = -1
                 end
             end
-            prop_next_to_propose[h] += 1
+            prop_next_to_propose[i] += 1
         end
 
         return prop_matches, resp_matches, indptr1, indptr2    
