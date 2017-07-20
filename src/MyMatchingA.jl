@@ -144,7 +144,7 @@ function my_deferred_acceptance(prop_prefs::Matrix{Int}, resp_prefs::Matrix{Int}
 
           #大学jのリストを探す
           #要修正？
-          p = resp_matches[indptr2[j]:indptr2[j+1]-1]
+          p = resp_matches[indptr2[j]:(indptr2[j+1]-1)]
 
           if resp_rankings[i,j] >= m+1
               prop_next_to_propose[i] += 1
