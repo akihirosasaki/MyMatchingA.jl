@@ -10,8 +10,8 @@ function my_deferred_acceptance(m_prefs::Vector{Vector{Int}},f_prefs::Vector{Vec
 
       for male in 1:m
           num = length(m_prefs[male])
-      for p in 1:num
-                prop_prefs[male,p] = m_prefs[male][p]
+          for p in 1:num
+              prop_prefs[male,p] = m_prefs[male][p]
           end
       end
       for fem in 1:n
@@ -144,7 +144,7 @@ function my_deferred_acceptance(prop_prefs::Matrix{Int}, resp_prefs::Matrix{Int}
 
           #大学jのリストを探す
           #要修正？
-          p = resp_matches[indptr[j]:indptr[j+1]-1]
+          p = resp_matches[indptr2[j]:indptr2[j+1]-1]
 
           if resp_rankings[i,j] >= m+1
               prop_next_to_propose[i] += 1
@@ -154,7 +154,7 @@ function my_deferred_acceptance(prop_prefs::Matrix{Int}, resp_prefs::Matrix{Int}
           #大学jが受け入れ可能なら受け入れる．
           a = findfirst(p,0)
           if a != 0
-              resp_matches[indptr[j]-1+a] = i
+              resp_matches[indptr2[j]-1+a] = i
               prop_matches[h] = j
 
           #大学jが定員オーバーしている場合
@@ -173,7 +173,7 @@ function my_deferred_acceptance(prop_prefs::Matrix{Int}, resp_prefs::Matrix{Int}
                   resp_matches[d] = i
                   prop_matches[h] = j
                   prop_matches[c] = -1
-             end
+              end
           end
           prop_next_to_propose[i] += 1
     end
@@ -195,7 +195,7 @@ end
 
 
 #多対一のケース
-function my_deferred_acceptance(prop_prefs::Matrix{Int},resp_prefs::Matrix{Int}, caps::Vector{Int})
+function my_deferred_acceptance(prop_prefs::Matrix{Int},resp_prefs::Matrix{Int},caps::Vector{Int})
         caps1 = ones(Int, size(prop_prefs, 1))
         caps2 = caps
         prop_matches, resp_matches, indptr1, indptr2 =
