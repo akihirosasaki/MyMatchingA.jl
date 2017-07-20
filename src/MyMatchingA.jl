@@ -1,8 +1,8 @@
 module MyMatchingA
 export my_deferred_acceptance
 
-    #多対多のケース
-    function my_deferred_acceptance(m_prefs::Vector{Vector{Int}},f_prefs::Vector{Vector{Int}},caps1::Vector{Int},caps2::Vector{Int})
+#多対多のケース
+function my_deferred_acceptance(m_prefs::Vector{Vector{Int}},f_prefs::Vector{Vector{Int}},caps1::Vector{Int},caps2::Vector{Int})
         m = length(m_prefs)
         n = length(f_prefs)
         prop_prefs = zeros(Int,m,n+1)
@@ -26,10 +26,10 @@ export my_deferred_acceptance
 
         return prop_matches,resp_matches,indptr1,indptr2
 
-    end
+end
 
-    #多対一のケース
-    function my_deferred_acceptance(m_prefs::Vector{Vector{Int}},f_prefs::Vector{Vector{Int}},caps::Vector{Int})
+#多対一のケース
+function my_deferred_acceptance(m_prefs::Vector{Vector{Int}},f_prefs::Vector{Vector{Int}},caps::Vector{Int})
         m = length(m_prefs)
         n = length(f_prefs)
         prop_prefs = zeros(Int,m,n+1)
@@ -55,10 +55,10 @@ export my_deferred_acceptance
 
         return prop_matches,resp_matches,indptr1,indptr2
 
-    end
+end
 
 
-    function my_deferred_acceptance(m_prefs::Vector{Vector{Int}},f_prefs::Vector{Vector{Int}})
+function my_deferred_acceptance(m_prefs::Vector{Vector{Int}},f_prefs::Vector{Vector{Int}})
         m = length(m_prefs)
         n = length(f_prefs)
         prop_prefs = zeros(Int,m,n+1)
@@ -82,10 +82,10 @@ export my_deferred_acceptance
         prop_matches, resp_matches, indptr1, indptr2 =
             my_deferred_acceptance(prop_prefs, resp_prefs, caps1, caps2)
         return prop_matches, resp_matches
-    end
+end
 
-    # 多対多のケース
-    function my_deferred_acceptance(prop_prefs::Matrix{Int}, resp_prefs::Matrix{Int}, caps1::Vector{Int}, caps2::Vector{Int})
+# 多対多のケース
+function my_deferred_acceptance(prop_prefs::Matrix{Int}, resp_prefs::Matrix{Int}, caps1::Vector{Int}, caps2::Vector{Int})
         m = size(prop_prefs, 1)
         n = size(resp_prefs, 1)
 
@@ -180,10 +180,10 @@ export my_deferred_acceptance
         end
 
         return prop_matches, resp_matches, indptr1, indptr2    
-    end
+end
 
-    #どこにも決まってない学生を返す．(存在しなければ0)
-    function get_single(partners)
+#どこにも決まってない学生を返す．(存在しなければ0)
+function get_single(partners)
         m = size(partners, 1)
         for i in 1:m
             if partners[i] == -1
@@ -191,27 +191,27 @@ export my_deferred_acceptance
             end        
         end
         return 0   
-    end
+end
 
 
-    #多対一のケース
-    function my_deferred_acceptance(prop_prefs::Matrix{Int},resp_prefs::Matrix{Int}, caps::Vector{Int})
+#多対一のケース
+function my_deferred_acceptance(prop_prefs::Matrix{Int},resp_prefs::Matrix{Int}, caps::Vector{Int})
         caps1 = ones(Int, size(prep_prefs, 1))
         caps2 = caps
         prop_matches, resp_matches, indptr1, indptr2 =
             my_deferred_acceptance(prop_prefs, resp_prefs, caps1, caps2)
         return prop_matches, resp_matches
-    end
+end
 
 
 
-    # 一対一のケース
-    function my_deferred_acceptance(prop_prefs::Matrix{Int},resp_prefs::Matrix{Int})
+# 一対一のケース
+function my_deferred_acceptance(prop_prefs::Matrix{Int},resp_prefs::Matrix{Int})
         caps1 = ones(Int, size(prep_prefs, 1))
         caps2 = ones(Int, size(resp_prefs, 1))
         prop_matches, resp_matches, indptr1, indptr2 =
             my_deferred_acceptance(prop_prefs, resp_prefs, caps1, caps2)
         return prop_matches, resp_matches
-    end
+end
 
 end
