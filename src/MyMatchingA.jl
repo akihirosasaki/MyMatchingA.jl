@@ -2,8 +2,7 @@ module MyMatchingA
 export my_deferred_acceptance
 
     #多対多のケース
-    function my_deferred_acceptance(m_prefs::Vector{Vector{Int}},f_prefs::Vector{Vector{Int}},
-        caps1::Vector{Int},caps2::Vector{Int})
+    function my_deferred_acceptance(m_prefs::Vector{Vector{Int}},f_prefs::Vector{Vector{Int}},caps1::Vector{Int},caps2::Vector{Int})
         m = length(m_prefs)
         n = length(f_prefs)
         prop_prefs = zeros(Int,m,n+1)
