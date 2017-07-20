@@ -25,7 +25,7 @@ export deferred_acceptance
         
         prop_matches, resp_matches, indptr1, indptr2 = deferred_acceptance(prop_prefs, resp_prefs, caps1, caps2)
 
-        return prop_matches,resp_matches,indptr1, indptr2
+        return prop_matches,resp_matches,indptr1,indptr2
 
     end
 
@@ -54,7 +54,7 @@ export deferred_acceptance
 
         prop_matches, resp_matches, indptr1, indptr2 = deferred_acceptance(prop_prefs, resp_prefs, caps1, caps2)
 
-        return prop_matches,resp_matches,indptr1, indptr2
+        return prop_matches,resp_matches,indptr1,indptr2
 
     end
 
