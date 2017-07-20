@@ -124,11 +124,11 @@ export deferred_acceptance
 
 @show        q = resp_rankings
         while true
-            h = get_single(prop_matches)
+@show            h = get_single(prop_matches)
             if h == 0
                 break
             end
-            i = searchsortedlast(indptr1, h)
+@show            i = searchsortedlast(indptr1, h)
             if prop_next_to_propose[i] > length(prop_prefs[i,:])
                 c = length(prop_prefs[i,:])
                 prop_matches[i] = 0
