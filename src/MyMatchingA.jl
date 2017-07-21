@@ -124,13 +124,13 @@ function my_deferred_acceptance(prop_prefs::Matrix{Int}, resp_prefs::Matrix{Int}
 
     
       while true
+          #未定の人を返す
           h = get_single(prop_matches)
           if h == 0
              break
           end
           i = searchsortedlast(indptr1, h)
           if prop_next_to_propose[i] > length(prop_prefs[i,:])
-              c = length(prop_prefs[i,:])
               prop_matches[h] = 0
               continue
           end        
@@ -139,7 +139,7 @@ function my_deferred_acceptance(prop_prefs::Matrix{Int}, resp_prefs::Matrix{Int}
           #学生iが入りたい大学jを探す．
           j = prop_prefs[i,prop_next_to_propose[i]]
           if j == 0
-              prop_matches[i] = 0
+              prop_matches[h] = 0
               continue
           end
 
