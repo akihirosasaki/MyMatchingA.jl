@@ -88,12 +88,14 @@ end
 function my_deferred_acceptance(prop_prefs::Matrix{Int}, resp_prefs::Matrix{Int}, caps1::Vector{Int}, caps2::Vector{Int})
       m = size(prop_prefs, 1)
       n = size(resp_prefs, 1)
-
-      prop_matches = fill(-1, m)
+    
+      M = sum(caps1)
+      prop_matches = fill(-1, M)
 
       prop_next_to_propose = ones(Int64, m)
-      L = sum(caps2)
-      resp_matches = zeros(Int64, L)
+    
+      F = sum(caps2)
+      resp_matches = zeros(Int64, F)
 
       indptr1 = Array{Int}(m+1)
       indptr1[1] = 1
