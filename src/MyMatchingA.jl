@@ -113,8 +113,7 @@ function my_deferred_acceptance(prop_prefs::Matrix{Int}, resp_prefs::Matrix{Int}
       resp_rankings = (m+1)*ones(Int, m, n)    
 
       for j in 1:n       
-         for i in 1:length(resp_prefs[j,:])
-             b = length(resp_prefs[j,:])            
+         for i in 1:length(resp_prefs[j,:])            
              a = resp_prefs[j,i]
              if a == 0
                 continue
@@ -145,7 +144,6 @@ function my_deferred_acceptance(prop_prefs::Matrix{Int}, resp_prefs::Matrix{Int}
           end
 
           #大学jのリストを探す
-          #要修正？
           p = resp_matches[indptr2[j]:(indptr2[j+1]-1)]
 
           if resp_rankings[i,j] >= m+1
@@ -167,12 +165,12 @@ function my_deferred_acceptance(prop_prefs::Matrix{Int}, resp_prefs::Matrix{Int}
                   b = resp_rankings[p[k],j]
                   list_comp[k] = b
               end
-            　b_max = maximum(list_comp)
-          　  c = findfirst(resp_rankings[:,j], b_max)
+              b_max = maximum(list_comp)
+              c = findfirst(resp_rankings[:,j], b_max)
 
               if resp_rankings[i,j] < resp_rankings[c,j]
-                  d = findfirst(resp_matches, c)
-                  resp_matches[d] = i
+                  d = findfirst(p, c)
+                  resp_matches[indptr2[j]-1+d] = i
                   prop_matches[h] = j
                   prop_matches[c] = -1
               end
