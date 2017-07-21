@@ -169,10 +169,12 @@ function my_deferred_acceptance(prop_prefs::Matrix{Int}, resp_prefs::Matrix{Int}
               c = findfirst(resp_rankings[:,j], b_max)
 
               if resp_rankings[i,j] < resp_rankings[c,j]
-                  d = findfirst(p, c)
-                  resp_matches[indptr2[j]-1+d] = i
-                  prop_matches[h] = j
-                  prop_matches[c] = -1
+                d = findfirst(p, c)
+                resp_matches[indptr2[j]-1+d] = i
+                prop_matches[h] = j
+                q = prop_matches[indptr1[c]:(indptr1[c+1]-1)]
+                e = findfirst(q, j)
+                prop_matches[indptr1[c]-1+e] = -1
               end
           end
           prop_next_to_propose[i] += 1
