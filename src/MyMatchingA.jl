@@ -80,7 +80,7 @@ function my_deferred_acceptance(m_prefs::Vector{Vector{Int}},f_prefs::Vector{Vec
       prop_matches, resp_matches, indptr1, indptr2 =
           my_deferred_acceptance(prop_prefs, resp_prefs, caps1, caps2)
 
-    return prop_matches, resp_matches
+    return prop_matches, resp_matches, indptr1, indptr2
 
 end
 
@@ -202,7 +202,7 @@ function my_deferred_acceptance(prop_prefs::Matrix{Int},resp_prefs::Matrix{Int},
         caps2 = caps
         prop_matches, resp_matches, indptr1, indptr2 =
             my_deferred_acceptance(prop_prefs, resp_prefs, caps1, caps2)
-        return prop_matches, resp_matches
+        return prop_matches, resp_matches, indptr1, indptr2
 end
 
 
@@ -213,7 +213,7 @@ function my_deferred_acceptance(prop_prefs::Matrix{Int},resp_prefs::Matrix{Int})
         caps2 = ones(Int, size(resp_prefs, 1))
         prop_matches, resp_matches, indptr1, indptr2 =
             my_deferred_acceptance(prop_prefs, resp_prefs, caps1, caps2)
-        return prop_matches, resp_matches
+        return prop_matches, resp_matches, indptr1, indptr2
 end
 
 end
